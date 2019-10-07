@@ -4,8 +4,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
@@ -22,19 +20,27 @@ const useStyles = makeStyles(theme => ({
 
 export default function MainNav(props) {
   const classes = useStyles();
-
+  console.log("----------------hell from mainnav:::", props);
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            News
+            <Link to="/" style={{ textDecorationLine: "none", color: "white" }}>
+              {" "}
+              News
+            </Link>
           </Typography>
           <Button
             color="inherit"
             // onClick={() => props.history.push("/login")}
           >
-            <Link to="/login">Login</Link>
+            <Link
+              to="/login"
+              style={{ textDecorationLine: "none", color: "white" }}
+            >
+              Login
+            </Link>
           </Button>
         </Toolbar>
       </AppBar>

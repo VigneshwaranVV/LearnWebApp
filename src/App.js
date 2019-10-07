@@ -1,19 +1,19 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Routes from "./routes";
 import messages_zh from "./localization/zh.json";
 import messages_en from "./localization/en.json";
-import { IntlProvider, addLocaleData } from "react-intl";
+import { IntlProvider } from "react-intl";
 
-// import locale_en from 'react-intl/locale-data/en';
-// import locale_zh from 'react-intl/locale-data/zh';
-// addLocaleData([...locale_en, ...locale_zh]);
+const locale = localStorage.getItem("locale_lang");
 
 function App() {
   return (
     <div className="App">
-      <IntlProvider locale={"cn"} messages={messages_zh}>
+      <IntlProvider
+        locale={"en"}
+        messages={locale === "en" ? messages_en : messages_zh}
+      >
         <Routes />
       </IntlProvider>
     </div>

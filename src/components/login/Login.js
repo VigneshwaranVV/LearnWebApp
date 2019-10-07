@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import Button from "@material-ui/core/Button";
-import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import { makeStyles, createStyles } from "@material-ui/core/styles";
 
 import { FormattedMessage } from "react-intl";
 
@@ -23,7 +23,7 @@ export default function Login(props) {
           variant="contained"
           color="primary"
           className={classes.loginButton}
-          onClick={() => props.history.push("/nav")}
+          onClick={() => props.history.push("/dashboard")}
         >
           <FormattedMessage id="loginButton" defaultMessage={"Login_null"} />
         </Button>

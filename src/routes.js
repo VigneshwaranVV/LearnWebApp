@@ -2,13 +2,17 @@ import React from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import MainNav from "./components/navBar/MainNav";
 import Login from "./components/login/Login";
+import DashBoard from "./components/dashBoard/dashBoard";
+import Screen1 from "./components/demoScreen/screen1";
 
 const Routes = () => (
   <BrowserRouter context={{}} location={{}}>
     <main>
       <MainNav />
       <Switch>
-            <Route path="/login" component={Login} />
+      <Route path="/" exact={true} component={Screen1} />
+      <Route path="/login" component={Login} />
+        <Route path="/dashboard" component={DashBoard} />
         <Route
           path="/forgotPassword"
           component={() => <p>Forgot Password</p>}
