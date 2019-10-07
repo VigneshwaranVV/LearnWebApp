@@ -2,23 +2,44 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 
+import TextField from '@material-ui/core/TextField';
 import { FormattedMessage } from "react-intl";
-
+import "./styles.css"
 export default function Login(props) {
   const useStyles = makeStyles(() =>
     createStyles({
       loginButton: {
-        height: "50px",
-        marginBottom: "100px"
+        height: "50px"
       }
     })
   );
   const classes = useStyles();
   console.log("-----------------from login", props);
   return (
-    <div>
+    <div style={{display: 'flex',justifyContent: 'center'}}>
+    <div className="form-continer">
       <p>Welcome to login screen</p>
-      <div>
+      <TextField
+      id="userNamePlaceHolder"
+      placeholder="s"
+      autoFocus
+      placeholder="Enter your Email"
+      // className={classes.textField}
+      // defaultValue={<FormattedMessage id="userNamePlaceHolder" defaultMessage={"Enter value"} />}
+      margin="normal"
+      variant="outlined"
+      // inputProps={{ 'aria-label': 'bare' }}
+    />
+    <TextField
+      id="outlined-password"
+      placeholder="Password"
+      // className={classes.textField}
+      // defaultValue={ <FormattedMessage id="passwordPlaceHolder" defaultMessage={"Enter value"} />}
+      margin="normal"
+      variant="outlined"
+      // inputProps={{ 'aria-label': 'bare' }}
+    />
+      <div style={{display:"flex",alignItems: 'center',flexDirection: 'row'}}>
         <Button
           variant="contained"
           color="primary"
@@ -27,16 +48,16 @@ export default function Login(props) {
         >
           <FormattedMessage id="loginButton" defaultMessage={"Login_null"} />
         </Button>
-        <br />
-        <Button
-          variant="contained"
-          color="primary"
-          // className={classes.button}
+        <p
+          // variant="contained"
+          // color="primary"
+          className="forgotPasswordButton"
           onClick={() => props.history.push("/forgotPassword")}
         >
           <FormattedMessage id="forgotPassword" defaultMessage={"Login_null"} />
-        </Button>
+        </p>
       </div>
+    </div>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import ExpandCollapse from "../../common/expandOption/ExpandCollapse";
 export default class DashBoard extends Component {
   render() {
     return (
-      <div style={{ backgroundColor: "green" }}>
+      <div style={{ backgroundColor: "lightgrey" }}>
         {" "}
         Welcome to dashboard
         <div style={{ width: "30%" }}>

@@ -8,7 +8,10 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    position: "sticky",
+    zIndex: 1,
+    top: 0
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -20,7 +23,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function MainNav(props) {
   const classes = useStyles();
-  console.log("----------------hell from mainnav:::", props);
+  const [isLoginScreen, toggleSignUp] = React.useState(false);
+  console.log("----------------hell from mainnav:::", props, window);
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -28,19 +32,29 @@ export default function MainNav(props) {
           <Typography variant="h6" className={classes.title}>
             <Link to="/" style={{ textDecorationLine: "none", color: "white" }}>
               {" "}
-              News
+              DATA SEARCH
             </Link>
           </Typography>
           <Button
+          style={{minWidth:'20%'}}
             color="inherit"
-            // onClick={() => props.history.push("/login")}
+            onClick={() => toggleSignUp(!isLoginScreen)}
           >
-            <Link
-              to="/login"
-              style={{ textDecorationLine: "none", color: "white" }}
-            >
-              Login
-            </Link>
+            {!isLoginScreen ? (
+              <Link
+                to="/login"
+                style={{ textDecorationLine: "none", color: "white" }}
+              >
+                Login
+              </Link>
+            ) : (
+              <Link
+                to="/register"
+                style={{ textDecorationLine: "none", color: "white" }}
+              >
+                Don't have account?
+              </Link>
+            )}
           </Button>
         </Toolbar>
       </AppBar>

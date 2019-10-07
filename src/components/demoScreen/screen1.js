@@ -8,10 +8,8 @@ import Grid from "@material-ui/core/Grid";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    // padding:"10px",
-    // display: 'flex',
     justifyContent: 'center',
-    // alignSelf: 'center'
+    padding:"10px",
   },
   paper: {
     // padding: theme.spacing(2),
@@ -25,7 +23,7 @@ function Screen1() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={1}>
+      <Grid container spacing={1} className={classes.root}>
         <Grid item >
           <RecipeReviewCard imgSrc="https://analyticsindiamag.com/wp-content/uploads/2018/02/iris.jpg"/>
         </Grid>

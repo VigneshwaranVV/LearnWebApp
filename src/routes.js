@@ -4,6 +4,7 @@ import MainNav from "./components/navBar/MainNav";
 import Login from "./components/login/Login";
 import DashBoard from "./components/dashBoard/dashBoard";
 import Screen1 from "./components/demoScreen/screen1";
+import Register from "./components/registration/register";
 
 const Routes = () => (
   <BrowserRouter context={{}} location={{}}>
@@ -16,6 +17,10 @@ const Routes = () => (
         <Route
           path="/forgotPassword"
           component={() => <p>Forgot Password</p>}
+        />
+        <Route
+          path="/register"
+          component={Register}
         />
       </Switch>
     </main>
