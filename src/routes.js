@@ -6,9 +6,9 @@ import Login from "./components/login/Login";
 const Routes = () => (
   <BrowserRouter context={{}} location={{}}>
     <main>
+      <MainNav />
       <Switch>
-        <Route path="/" exact={true} component={MainNav} />
-        <Route path="/login"  component={Login} />
+            <Route path="/login" component={Login} />
         <Route
           path="/forgotPassword"
           component={() => <p>Forgot Password</p>}

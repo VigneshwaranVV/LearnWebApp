@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 
+import { FormattedMessage } from "react-intl";
+
 export default function Login(props) {
-  //   render() {
   const useStyles = makeStyles(() =>
     createStyles({
       loginButton: {
@@ -23,7 +24,9 @@ export default function Login(props) {
           color="primary"
           className={classes.loginButton}
           onClick={() => props.history.push("/nav")}
-        >dddddddddddddddd</Button>
+        >
+          <FormattedMessage id="loginButton" defaultMessage={"Login_null"} />
+        </Button>
         <br />
         <Button
           variant="contained"
@@ -31,12 +34,9 @@ export default function Login(props) {
           // className={classes.button}
           onClick={() => props.history.push("/forgotPassword")}
         >
-          Forgot Password
+          <FormattedMessage id="forgotPassword" defaultMessage={"Login_null"} />
         </Button>
       </div>
     </div>
   );
-  //   }
 }
-
-// var r = [<FormattedMessage id="loginButton" defaultMessage={"Login_null"} />];
