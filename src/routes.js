@@ -11,17 +11,15 @@ const Routes = () => (
     <main>
       <MainNav />
       <Switch>
-      <Route path="/" exact={true} component={Screen1} />
-      <Route path="/login" component={Login} />
+        <Route path="/" exact={true} component={Screen1} />
+        <Route path="/login" component={Login} />
         <Route path="/dashboard" component={DashBoard} />
         <Route
           path="/forgotPassword"
           component={() => <p>Forgot Password</p>}
         />
-        <Route
-          path="/register"
-          component={Register}
-        />
+        <Route path="/register" component={Register} />
+        <Route path="/profile" component={Register} />
       </Switch>
     </main>
   </BrowserRouter>
