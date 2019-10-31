@@ -52,7 +52,7 @@ export default function RecipeReviewCard(props) {
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            <img src={require("../../Assets/img/a1.jpg")} width="40px" height="40px"/>
+            <img alt="card_icon" src={require("../../Assets/img/a1.jpg")} width="40px" height="40px"/>
           </Avatar>
         }
         action={

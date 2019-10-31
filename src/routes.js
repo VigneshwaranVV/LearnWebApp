@@ -11,8 +11,8 @@ const Routes = () => (
     <main>
       <MainNav />
       <Switch>
-        <Route path="/" exact={true} component={Screen1} />
-        <Route path="/login" component={Login} />
+        {/* <Route path="/" exact={true} component={Register} /> */}
+        <Route path="/login" component={Login} exact={true}/>
         <Route path="/dashboard" component={DashBoard} />
         <Route
           path="/forgotPassword"

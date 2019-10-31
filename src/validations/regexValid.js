@@ -11,11 +11,10 @@ export const isEmpty = text => {
 
 export const isMinMaxLength = (text, minLength = 0, maxLength = 0) => {
   const isMinMaxLength_regex = /^.{6,7}$/;
-  var re = new RegExp(/^.{6,7}$/);
 
   if (minLength === 0 || maxLength === 0) {
     if (maxLength === 0) {
-        // "".replace(re)
+      // "".replace(re)
     }
     if (minLength === 0) {
     }

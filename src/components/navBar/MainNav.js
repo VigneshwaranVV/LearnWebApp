@@ -5,6 +5,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function MainNav(props) {
+function MainNav(props) {
   const classes = useStyles();
   const [isLoginScreen, toggleSignUp] = React.useState(false);
   console.log("----------------hell from mainnav:::", props, window);
@@ -36,7 +37,7 @@ export default function MainNav(props) {
             </Link>
           </Typography>
           <Button
-          style={{minWidth:'20%'}}
+            style={{ minWidth: "20%" }}
             color="inherit"
             onClick={() => toggleSignUp(!isLoginScreen)}
           >
@@ -61,3 +62,9 @@ export default function MainNav(props) {
     </div>
   );
 }
+export const mapStateToProps = state => {
+  return { isAuth: state.isLoggedIn };
+};
+
+
+export default connect(mapStateToProps)(MainNav);
