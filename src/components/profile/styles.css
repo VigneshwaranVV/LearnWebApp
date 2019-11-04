@@ -1,0 +1,24 @@
+.picture_container {
+  flex: 0.5;
+  min-height: 20vh;
+  display: "flex";
+  padding: 100px;
+  /* background-color: bisque; */
+}
+.picture {
+  height: 60;
+  width: 60;
+  border-radius: 30;
+}
+.name_text {
+  font-weight: bold;
+  font-size: large;
+  padding: 20px;
+}
+.form_container {
+  display: flex;
+  min-width: "80%";
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

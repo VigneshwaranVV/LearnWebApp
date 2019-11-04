@@ -4,6 +4,7 @@ import {
   LOGIN_AUTH
 } from "../actions/types";
 import { combineReducers } from "redux";
+import { reducer as formReducer } from 'redux-form';
 
 function authReducer(state = [], action) {
   console.log("reee", action);
@@ -19,4 +20,4 @@ function authReducer(state = [], action) {
   }
 }
 
-export default combineReducers({ authReducer, ...{} });
+export default combineReducers({ authReducer, form: formReducer, ...{} });

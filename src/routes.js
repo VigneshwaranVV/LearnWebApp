@@ -5,6 +5,7 @@ import Login from "./components/login/Login";
 import DashBoard from "./components/dashBoard/dashBoard";
 import Screen1 from "./components/demoScreen/screen1";
 import Register from "./components/registration/register";
+import profileForm from "./components/profile/profileForm";
 
 const Routes = () => (
   <BrowserRouter context={{}} location={{}}>
@@ -18,7 +19,7 @@ const Routes = () => (
         component={() => <p>Forgot Password</p>}
       />
       <Route path="/register" component={Register} />
-      <Route path="/profile" component={Register} />
+      <Route path="/profile" component={profileForm} />
     </Switch>
   </BrowserRouter>
 );

@@ -39,7 +39,17 @@ function MainNav(props) {
               DATA SEARCH
             </Link>
           </Typography>
-          {props.isAuth ? null :
+          {props.isAuth ?
+            <Link
+              to="/profile"
+              style={{ textDecorationLine: "none", color: "white" }}
+            >
+              <div style={{ backgroundColor: 'lightgrey', display: 'flex', height: 40, width: 40, borderRadius: 20, justifyContent: 'center', alignItems: 'center' }}>
+                *
+                  </div>
+            </Link>
+
+            :
             <Button
               style={{ minWidth: "20%" }}
               color="inherit"
@@ -69,7 +79,7 @@ function MainNav(props) {
 }
 export const mapStateToProps = state => {
   console.log("-----map:::", state)
-  return { isAuth: state.authReducer.isLoggedIn };
+  return { isAuth: true };
 };
 
 
