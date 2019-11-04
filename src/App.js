@@ -7,7 +7,8 @@ import { IntlProvider } from "react-intl";
 import { Provider } from "react-redux";
 import configureStore from "./store_config/store";
 
-const locale = localStorage.getItem("locale_lang");
+// const locale = localStorage.getItem("locale_lang");
+const locale = "en";
 
 function App() {
   return (

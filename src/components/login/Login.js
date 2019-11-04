@@ -221,7 +221,7 @@ function Login(props) {
             fontFamily: fonts.NunitoSans_Regular,
             fontSize: "17px"
           }}
-          onClick={() => props.history.push("/dashboard")}
+          // onClick={() => props.history.push("/dashboard")}
         >
           <FormattedMessage
             id="forgotPassword"
@@ -239,7 +239,7 @@ function validateEmail(email) {
 }
 export const mapStateToProps = state => {
   return {
-    isAuth: state.isLoggedIn
+    isAuth: state.authReducer.isLoggedIn
   };
 };
 

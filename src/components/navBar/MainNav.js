@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -25,7 +25,10 @@ const useStyles = makeStyles(theme => ({
 function MainNav(props) {
   const classes = useStyles();
   const [isLoginScreen, toggleSignUp] = React.useState(false);
-  console.log("----------------hell from mainnav:::", props, window);
+  useEffect(() => {
+    console.log("----------------hell from mainnav:::", props, window);
+
+  })
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -36,34 +39,37 @@ function MainNav(props) {
               DATA SEARCH
             </Link>
           </Typography>
-          <Button
-            style={{ minWidth: "20%" }}
-            color="inherit"
-            onClick={() => toggleSignUp(!isLoginScreen)}
-          >
-            {!isLoginScreen ? (
-              <Link
-                to="/login"
-                style={{ textDecorationLine: "none", color: "white" }}
-              >
-                Login
+          {props.isAuth ? null :
+            <Button
+              style={{ minWidth: "20%" }}
+              color="inherit"
+              onClick={() => toggleSignUp(!isLoginScreen)}
+            >
+              {!isLoginScreen ? (
+                <Link
+                  to="/login"
+                  style={{ textDecorationLine: "none", color: "white" }}
+                >
+                  Login
               </Link>
-            ) : (
-              <Link
-                to="/register"
-                style={{ textDecorationLine: "none", color: "white" }}
-              >
-                Don't have account?
+              ) : (
+                  <Link
+                    to="/register"
+                    style={{ textDecorationLine: "none", color: "white" }}
+                  >
+                    Don't have account?
               </Link>
-            )}
-          </Button>
+                )}
+            </Button>
+          }
         </Toolbar>
       </AppBar>
     </div>
   );
 }
 export const mapStateToProps = state => {
-  return { isAuth: state.isLoggedIn };
+  console.log("-----map:::", state)
+  return { isAuth: state.authReducer.isLoggedIn };
 };
 
 
