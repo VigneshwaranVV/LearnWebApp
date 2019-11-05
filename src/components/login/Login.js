@@ -66,11 +66,15 @@ function Login(props) {
   const handleProceed = () => {
     if (formData.password.length > 0 && validateEmail(formData.username)) {
       props.onClickLogin(formData);
-      props.history.replace("/dashboard");
+
     } else {
       setIsError(true);
     }
   };
+  useEffect(() => {
+    if (props.isAuth)
+      props.history.replace("/dashboard");
+  })
 
   const keyPress = e => {
     if (e.keyCode === 13) {
@@ -94,7 +98,7 @@ function Login(props) {
           height: "10vh"
         }}
       >
-        {isError && (
+        {isError || props.isErrorMsg && (
           <div
             style={{
               width: "90%",
@@ -120,10 +124,18 @@ function Login(props) {
             <span
               style={{ color: colors.Charcoal, fontFamily: fonts.Helvetica }}
             >
-              <FormattedMessage
-                id="error_text"
-                defaultMessage="Email ID cannot be blank or the email format is not valid"
-              />
+              {
+                props.isErrorMsg ?
+                  <FormattedMessage
+                    id="error_text_api"
+                    defaultMessage={props.isErrorMsg}
+                  />
+                  :
+                  <FormattedMessage
+                    id="error_text"
+                    defaultMessage="Email ID cannot be blank or the email format is not valid"
+                  />
+              }
             </span>
           </div>
         )}
@@ -201,9 +213,11 @@ function Login(props) {
               color="primary"
               style={{ backgroundColor: colors.Denim, boxShadow: "0px" }}
               className={classes.button}
-              onClick={handleProceed}
+              onClick={props.isLoading ? null : handleProceed}
             >
-              <FormattedMessage id="loginButton" defaultMessage="Proceed >" />
+              {props.isLoading ? "Loading" :
+                <FormattedMessage id="loginButton" defaultMessage="Proceed >" />
+              }
             </Button>
           </div>
         </form>
@@ -233,7 +247,9 @@ function validateEmail(email) {
 }
 export const mapStateToProps = state => {
   return {
-    isAuth: state.authReducer.isLoggedIn
+    isAuth: state.authReducer.isLoggedIn,
+    isLoading: state.authReducer.isLoading,
+    isErrorMsg: state.authReducer.isError && state.authReducer.isError.message
   };
 };
 

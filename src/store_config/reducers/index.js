@@ -12,7 +12,7 @@ function authReducer(state = [], action) {
     case LOGIN_AUTH_SUCCESS:
       return { ...state, ...action.payload, isLoading: false };
     case LOGIN_AUTH:
-      return { ...state, isLoading: true };
+      return { ...state, isLoading: true, isError: "" };
     case LOGIN_AUTH_FAILURE:
       return { ...state, ...action.payload, isLoading: false };
     case LOGOUT:
