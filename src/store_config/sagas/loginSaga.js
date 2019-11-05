@@ -1,4 +1,4 @@
-import { put, select, takeEvery } from "redux-saga/effects";
+import { put, takeEvery } from "redux-saga/effects";
 
 import { LOGIN_AUTH } from "../actions/types";
 import { loginAuthSucceeded } from "../actions";

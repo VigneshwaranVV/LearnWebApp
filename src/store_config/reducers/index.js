@@ -1,13 +1,13 @@
 import {
   LOGIN_AUTH_SUCCESS,
   LOGIN_AUTH_FAILURE,
-  LOGIN_AUTH
+  LOGIN_AUTH,
+  LOGOUT
 } from "../actions/types";
 import { combineReducers } from "redux";
 import { reducer as formReducer } from 'redux-form';
 
 function authReducer(state = [], action) {
-  console.log("reee", action);
   switch (action.type) {
     case LOGIN_AUTH_SUCCESS:
       return { ...state, ...action.payload, isLoading: false };
@@ -15,6 +15,8 @@ function authReducer(state = [], action) {
       return { ...state, isLoading: true };
     case LOGIN_AUTH_FAILURE:
       return { ...state, ...action.payload, isLoading: false };
+    case LOGOUT:
+      return {}
     default:
       return state;
   }

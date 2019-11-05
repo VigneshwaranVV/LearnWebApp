@@ -6,7 +6,11 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-
+import { Redirect, Route, withRouter } from 'react-router-dom';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import { logout } from "../../store_config/actions";
+import { RouteConfig } from "../../config/routeConfig";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -26,11 +30,28 @@ function MainNav(props) {
   const classes = useStyles();
   const [isLoginScreen, toggleSignUp] = React.useState(false);
   useEffect(() => {
-    console.log("----------------hell from mainnav:::", props, window);
-
+    if (window.location.pathname == "/login") {
+      toggleSignUp(true);
+    }
   })
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = (path) => {
+    setAnchorEl(null);
+    if (path) {
+      props.history.replace(path)
+    }
+    if (path == RouteConfig.login) {
+      props.onClickLogout();
+    }
+  }
   return (
     <div className={classes.root}>
+
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
@@ -41,7 +62,8 @@ function MainNav(props) {
           </Typography>
           {props.isAuth ?
             <Link
-              to="/profile"
+              // to="/profile"
+              onClick={handleClick}
               style={{ textDecorationLine: "none", color: "white" }}
             >
               <div style={{ backgroundColor: 'lightgrey', display: 'flex', height: 40, width: 40, borderRadius: 20, justifyContent: 'center', alignItems: 'center' }}>
@@ -57,14 +79,14 @@ function MainNav(props) {
             >
               {!isLoginScreen ? (
                 <Link
-                  to="/login"
+                  to={RouteConfig.login}
                   style={{ textDecorationLine: "none", color: "white" }}
                 >
                   Login
               </Link>
               ) : (
                   <Link
-                    to="/register"
+                    to={RouteConfig.register}
                     style={{ textDecorationLine: "none", color: "white" }}
                   >
                     Don't have account?
@@ -74,13 +96,31 @@ function MainNav(props) {
           }
         </Toolbar>
       </AppBar>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={() => handleClose(RouteConfig.profile)}>Profile</MenuItem>
+        <MenuItem onClick={() => handleClose(RouteConfig.profile)}>My account</MenuItem>
+        <MenuItem onClick={() => handleClose(RouteConfig.login)}>Logout</MenuItem>
+      </Menu>
     </div>
   );
 }
 export const mapStateToProps = state => {
-  console.log("-----map:::", state)
-  return { isAuth: true };
+  return { isAuth: state.authReducer.isLoggedIn };
 };
 
+export const mapDispatchToProps = (dispatch) => {
+  return {
+    onClickLogout: ()=>{
+      return dispatch(logout)
+    }
+  }
+}
 
-export default connect(mapStateToProps)(MainNav);
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(MainNav));

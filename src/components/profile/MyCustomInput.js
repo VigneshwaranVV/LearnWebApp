@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function MyCustomInput(props) {
     const {
-        input: { value, onChange, name ,label}
+        input: { onChange, name, label }
     } = props
     const classes = useStyles();
     return (

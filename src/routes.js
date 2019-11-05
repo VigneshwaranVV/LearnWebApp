@@ -6,20 +6,22 @@ import DashBoard from "./components/dashBoard/dashBoard";
 import Screen1 from "./components/demoScreen/screen1";
 import Register from "./components/registration/register";
 import profileForm from "./components/profile/profileForm";
+import { RouteConfig } from "./config/routeConfig";
+import { ProtectedRoute } from "./common/protected-route/ProtectedRoute";
 
 const Routes = () => (
   <BrowserRouter context={{}} location={{}}>
     <MainNav />
     <Switch>
-      <Route path="/" exact={true} component={Screen1} />
-      <Route path="/login" component={Login} />
-      <Route path="/dashboard" component={DashBoard} />
+      <Route path={RouteConfig.root} exact={true} component={Screen1} />
+      <Route path={RouteConfig.login} component={Login} />
+      <ProtectedRoute path={RouteConfig.dashboard} component={DashBoard} />
       <Route
-        path="/forgotPassword"
+        path={RouteConfig.forgotPassword}
         component={() => <p>Forgot Password</p>}
       />
-      <Route path="/register" component={Register} />
-      <Route path="/profile" component={profileForm} />
+      <Route path={RouteConfig.register} component={Register} />
+      <ProtectedRoute path={RouteConfig.profile} component={profileForm} />
     </Switch>
   </BrowserRouter>
 );

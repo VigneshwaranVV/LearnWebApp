@@ -21,15 +21,15 @@ const useStyles = makeStyles(theme => ({
   },
   root: {
     // backgroundColor: 'yellow',
-    "& $notchedOutline": {
-      border: "6px black"
-    },
-    "&$focused $notchedOutline": {
-      //you want this to be the same as the backgroundColor above
-      border: "6px green"
-      // outline: '1px yellow'
-      // outlineColor:'green'
-    }
+    // "& $notchedOutline": {
+    //   border: "6px black"
+    // },
+    // "&$focused $notchedOutline": {
+    //   //you want this to be the same as the backgroundColor above
+    //   border: "6px green"
+    //   // outline: '1px yellow'
+    //   // outlineColor:'green'
+    // }
   },
   textField: {
     width: "82%",
@@ -51,7 +51,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Login(props) {
-  console.log("======props login:::",props)
   const classes = useStyles();
   // const [isLoggedIn,setLoginStatus]
   const [formData, setFormData] = React.useState({
@@ -64,28 +63,23 @@ function Login(props) {
     setIsError(false);
     setFormData({ ...formData, [fieldKey]: value });
   };
-  useEffect(() => {
-    localStorage.setItem("isLoggedIn", false);
-  }, []);
-
   const handleProceed = () => {
-    localStorage.setItem("isLoggedIn", true);
     if (formData.password.length > 0 && validateEmail(formData.username)) {
       props.onClickLogin(formData);
-      props.history.push("/dashboard");
+      props.history.replace("/dashboard");
     } else {
       setIsError(true);
     }
   };
 
   const keyPress = e => {
-    if (e.keyCode == 13) {
+    if (e.keyCode === 13) {
       //keycode for enter key is 13
       handleProceed();
     }
   };
   const keyPress_user = e => {
-    if (e.keyCode == 13) {
+    if (e.keyCode === 13) {
       //keycode for enter key is 13
       pwd_ref.current.focus();
     }
@@ -221,7 +215,7 @@ function Login(props) {
             fontFamily: fonts.NunitoSans_Regular,
             fontSize: "17px"
           }}
-          // onClick={() => props.history.push("/dashboard")}
+        // onClick={() => props.history.push("/dashboard")}
         >
           <FormattedMessage
             id="forgotPassword"
@@ -234,7 +228,7 @@ function Login(props) {
 }
 
 function validateEmail(email) {
-  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var re = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   return re.test(String(email).toLowerCase());
 }
 export const mapStateToProps = state => {

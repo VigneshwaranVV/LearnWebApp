@@ -34,7 +34,7 @@ function getStepContent(step) {
     case 0:
       return <PersonalInformation />;
     case 1:
-      return <Login />;
+      return () =><p>Form </p>;
     case 2:
       return <Completed />;
     default:

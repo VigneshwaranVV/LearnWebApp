@@ -10,7 +10,6 @@ const initialState = {
     isLoggedIn: false,
     isLoading: false
   },
-  errors:[]
 };
 const configureStore = () => {
   const middlewares = [sagaMiddleware];
