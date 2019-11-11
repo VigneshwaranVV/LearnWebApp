@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ErrorRoundedIcon from "@material-ui/icons/ErrorRounded";
 import "./styles.css";
@@ -8,6 +7,7 @@ import { colors, fonts } from "../constants/variables";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import { loginAuth } from "../../store_config/actions";
+import CustomInputField from "../../common/VTextField/CustomInputField";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -16,29 +16,15 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     justifyContent: "center",
     width: "100%",
+    backgroundColor: 'red',
     display: "flex",
     textAlign: "center"
   },
-  root: {
-    // backgroundColor: 'yellow',
-    // "& $notchedOutline": {
-    //   border: "6px black"
-    // },
-    // "&$focused $notchedOutline": {
-    //   //you want this to be the same as the backgroundColor above
-    //   border: "6px green"
-    //   // outline: '1px yellow'
-    //   // outlineColor:'green'
-    // }
-  },
   textField: {
-    width: "82%",
+    minWidth: "95%",
     alignSelf: "center",
     fontFamily: fonts.Lato_Regular,
     fontSize: "15px"
-  },
-  dense: {
-    marginTop: theme.spacing(2)
   },
   button: {
     margin: theme.spacing(1),
@@ -54,8 +40,8 @@ function Login(props) {
   const classes = useStyles();
   // const [isLoggedIn,setLoginStatus]
   const [formData, setFormData] = React.useState({
-    username: "a@ss.com",
-    password: "ss"
+    email: "a@ss.com",
+    password: "4321"
   });
   const [isError, setIsError] = React.useState(false);
   const pwd_ref = React.createRef();
@@ -64,7 +50,7 @@ function Login(props) {
     setFormData({ ...formData, [fieldKey]: value });
   };
   const handleProceed = () => {
-    if (formData.password.length > 0 && validateEmail(formData.username)) {
+    if (formData.password.length > 0 && validateEmail(formData.email)) {
       props.onClickLogin(formData);
 
     } else {
@@ -88,8 +74,9 @@ function Login(props) {
       pwd_ref.current.focus();
     }
   };
+  let Background = ""
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${Background})` }}>
       <div
         style={{
           display: "flex",
@@ -142,9 +129,10 @@ function Login(props) {
       </div>
       <div
         style={{
+          width: '100%',
           display: "flex",
           flexDirection: "column",
-          height: "80vh",
+          height: "70vh",
           justifyContent: "center"
         }}
       >
@@ -160,72 +148,62 @@ function Login(props) {
             LOGIN TO PROCEED
           </p>
         </div>
-        <form className={classes.container} noValidate autoComplete="off">
-          <FormattedMessage
-            id="email_placeHolder"
-            defaultMessage="Enter your Email"
+        {/* <form className={classes.container} noValidate autoComplete="off"> */}
+        <FormattedMessage
+          id="email_placeHolder"
+          defaultMessage="Enter your Email"
+        >
+          {placeholder => (
+            <CustomInputField
+              className={classes.textField}
+              onKeyDown={keyPress_user}
+              label={placeholder}
+              autoFocus
+              type="email"
+              onChange={event => handleChange("email", event.target.value)}
+              value={formData.email}
+            />
+          )}
+        </FormattedMessage>
+        <FormattedMessage id="password_placeHolder" defaultMessage="Password">
+          {placeholder => (
+            <CustomInputField
+              inputRef={pwd_ref}
+              onKeyDown={keyPress}
+              label={placeholder}
+              className={classes.textField}
+              value={formData.password}
+              type="password"
+              onChange={event => handleChange("password", event.target.value)}
+            />
+          )}
+        </FormattedMessage>
+        <div
+          style={{
+            justifyContent: "center",
+            textAlign: "center",
+            overflowWrap: "break-word",
+            width: "100%"
+          }}
+        >
+          <Button
+            variant="contained"
+            color="primary"
+            style={{ backgroundColor: colors.fb_blue, boxShadow: "0px" ,fontWeight: 'bold'}}
+            className={classes.button}
+            onClick={props.isLoading ? null : handleProceed}
           >
-            {placeholder => (
-              <TextField
-                id="outlined-email-input"
-                className={classes.textField}
-                classes={{ root: classes.root }}
-                onKeyDown={keyPress_user}
-                hiddenLabel
-                autoFocus
-                variant="outlined"
-                placeholder={placeholder}
-                type="email"
-                margin="normal"
-                onChange={event => handleChange("username", event.target.value)}
-                value={formData.username}
-              />
-            )}
-          </FormattedMessage>
-          <FormattedMessage id="password_placeHolder" defaultMessage="Password">
-            {placeholder => (
-              <TextField
-                inputRef={pwd_ref}
-                id="standard-password-input"
-                className={classes.textField}
-                onKeyDown={keyPress}
-                hiddenLabel
-                variant="outlined"
-                placeholder={placeholder}
-                type="password"
-                autoComplete="current-password"
-                margin="normal"
-                value={formData.password}
-                onChange={event => handleChange("password", event.target.value)}
-              />
-            )}
-          </FormattedMessage>
-          <div
-            style={{
-              justifyContent: "center",
-              textAlign: "center",
-              overflowWrap: "break-word",
-              width: "100%"
-            }}
-          >
-            <Button
-              variant="contained"
-              color="primary"
-              style={{ backgroundColor: colors.Denim, boxShadow: "0px" }}
-              className={classes.button}
-              onClick={props.isLoading ? null : handleProceed}
-            >
-              {props.isLoading ? "Loading" :
-                <FormattedMessage id="loginButton" defaultMessage="Proceed >" />
-              }
-            </Button>
-          </div>
-        </form>
+            {props.isLoading ? "Loading..." :
+              <FormattedMessage id="loginButton" defaultMessage="Proceed >" />
+            }
+          </Button>
+        </div>
+        {/* </form> */}
         <p
           style={{
             textAlign: "center",
             justifyContent: "center",
-            color: colors.Denim,
+            color: colors.fb_blue,
             fontFamily: fonts.NunitoSans_Regular,
             fontSize: "17px"
           }}
@@ -236,6 +214,7 @@ function Login(props) {
             defaultMessage="Forgot Password ?"
           />
         </p>
+        <a href="">Don't have account? Sign up here.</a>
       </div>
     </div>
   );
@@ -249,7 +228,7 @@ export const mapStateToProps = state => {
   return {
     isAuth: state.authReducer.isLoggedIn,
     isLoading: state.authReducer.isLoading,
-    isErrorMsg: state.authReducer.isError && state.authReducer.isError.message
+    isErrorMsg: state.authReducer.isError && state.authReducer.isError
   };
 };
 

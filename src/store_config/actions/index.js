@@ -1,9 +1,9 @@
 import { LOGIN_AUTH, LOGIN_AUTH_SUCCESS, LOGOUT, LOGIN_AUTH_FAILURE } from "./types";
 
-export const loginAuth = ({ username, password }) => ({
+export const loginAuth = ({ email, password }) => ({
   type: LOGIN_AUTH,
   payload: {
-    username: username,
+    email: email,
     password: password
   }
 });

@@ -6,6 +6,7 @@ const fonts = {
 
 const colors = {
   Spray: "#88E0E0",
+  fb_blue: '#3B5A98',
   White: "#FFF",
   Denim: "#117BBD",
   Orange: "#FFA500",
@@ -15,4 +16,8 @@ const colors = {
   gradientColor: "linear-gradient(to right,#001e65 0,#009cad 100%)"
 };
 
-export { colors, fonts };
+const text_contants={
+  app_header: "News Manager"
+}
+
+export { colors, fonts ,text_contants};

@@ -11,6 +11,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { logout } from "../../store_config/actions";
 import { RouteConfig } from "../../config/routeConfig";
+import { colors, text_contants } from "../constants/variables";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -52,12 +53,11 @@ function MainNav(props) {
   return (
     <div className={classes.root}>
 
-      <AppBar position="static">
+      <AppBar position="static" style={{backgroundColor: colors.fb_blue}}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <Link to="/" style={{ textDecorationLine: "none", color: "white" }}>
-              {" "}
-              DATA SEARCH
+              {text_contants.app_header}
             </Link>
           </Typography>
           {props.isAuth ?
@@ -71,28 +71,28 @@ function MainNav(props) {
                   </div>
             </Link>
 
-            :
-            <Button
-              style={{ minWidth: "20%" }}
-              color="inherit"
-              onClick={() => toggleSignUp(!isLoginScreen)}
-            >
-              {!isLoginScreen ? (
-                <Link
-                  to={RouteConfig.login}
-                  style={{ textDecorationLine: "none", color: "white" }}
-                >
-                  Login
-              </Link>
-              ) : (
-                  <Link
-                    to={RouteConfig.register}
-                    style={{ textDecorationLine: "none", color: "white" }}
-                  >
-                    Don't have account?
-              </Link>
-                )}
-            </Button>
+            : null
+            // <Button
+            //   style={{ minWidth: "20%",color:colors.fb_blue }}
+            //   color="inherit"
+            //   onClick={() => toggleSignUp(!isLoginScreen)}
+            // >
+            //   {!isLoginScreen ? (
+            //     <Link
+            //       to={RouteConfig.login}
+            //       style={{ textDecorationLine: "none", color: "white" }}
+            //     >
+            //       Login
+            //   </Link>
+            //   ) : (
+            //       <Link
+            //         to={RouteConfig.register}
+            //         style={{ textDecorationLine: "none", color: "white" }}
+            //       >
+            //         Don't have account?
+            //   </Link>
+            //     )}
+            // </Button>
           }
         </Toolbar>
       </AppBar>

@@ -1,9 +1,9 @@
 
 export const environment = {
-    local: "http://localhost:3000",
+    local: "http://localhost:3002",
     prod: "https://usermanagement-node.herokuapp.com"
 }
-const api = environment.prod
+const api = environment.local
 export const apiList = {
     login_POST: api + "/user/login",
     logout_POST: api + "/user/logout"

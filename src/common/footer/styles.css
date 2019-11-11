@@ -1,0 +1,14 @@
+.nav-container {
+  background:#3B5A98;
+  border: none;
+  color: white;
+  font-size: 15px;
+  line-height: 24px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 7vh;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}

@@ -18,7 +18,7 @@ let ContactForm = props => {
 
 ContactForm = reduxForm({
   // a unique name for the form
-  form: 'contact'
+  form: 'contact',
 })(ContactForm)
 
 export default ContactForm
