@@ -3,10 +3,12 @@ import { Button, MenuItem } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import ButtonAppBarCollapse from "./ButtonAppBarCollapse";
 import { NavLink, withRouter } from 'react-router-dom'
+import { RouteConfig } from "../../config/routeConfig";
 
 const styles = theme => ({
   root: {
-    position: "absolute",
+    position: "sticky",
+    // height: '7vh',
     right: 0,
   },
   buttonBar: {
@@ -25,6 +27,9 @@ const styles = theme => ({
 const AppBarCollapse = props => {
   const { drawerData } = { ...props }
   const redirect = (route = '/') => {
+    if(route ==RouteConfig.login){
+      props.onClickLogout();
+    }
     props.history.push(route);
   }
   return (

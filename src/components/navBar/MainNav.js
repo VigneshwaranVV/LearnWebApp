@@ -10,10 +10,12 @@ import { logout } from "../../store_config/actions";
 import { RouteConfig } from "../../config/routeConfig";
 import { colors, text_contants } from "../constants/variables";
 import AppBarCollapse from "../../common/appBarCustom/AppBarCollapse";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    // position: "sticky",
+    position: "sticky",
     zIndex: 1,
     top: 0
   },
@@ -21,33 +23,13 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2)
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
+    // minWidth: '80%'
   }
 }));
 
 function MainNav(props) {
   const classes = useStyles();
-  const [isLoginScreen, toggleSignUp] = React.useState(false);
-  useEffect(() => {
-    if (window.location.pathname == "/login") {
-      toggleSignUp(true);
-    }
-  })
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleClick = event => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = (path) => {
-    setAnchorEl(null);
-    if (path) {
-      props.history.replace(path)
-    }
-    if (path == RouteConfig.login) {
-      props.onClickLogout();
-    }
-  }
   const drawerData_beforeLogin = [
     {
       text: 'Login',
@@ -66,19 +48,28 @@ function MainNav(props) {
     {
       text: 'Dashboard',
       route: RouteConfig.dashboard
+    },
+    {
+      text: 'Saved Data',
+      route: RouteConfig.dashboard,
+    },
+    {
+      text: <p style={{verticalAlign: 'center',display: 'flex'}}>Logout &nbsp;<ExitToAppIcon /></p>,
+      route: RouteConfig.login
     }
   ]
   return (
     <div className={classes.root}>
-
-      <AppBar position="static" style={{ backgroundColor: colors.fb_blue }}>
+      <AppBar position="ststaicky"
+        style={{ backgroundColor: colors.fb_blue, position: 'sticky' }}
+      >
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <Link to="/" style={{ textDecorationLine: "none", color: "white" }}>
               {text_contants.app_header}
             </Link>
           </Typography>
-          <AppBarCollapse drawerData={props.isAuth ? drawerData_afterLogin : drawerData_beforeLogin} />
+          <AppBarCollapse drawerData={props.isAuth ? drawerData_afterLogin : drawerData_beforeLogin} onClickLogout={props.onClickLogout} />
         </Toolbar>
       </AppBar>
     </div>

@@ -7,6 +7,7 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import { colors } from "../../components/constants/variables";
 
 const styles = theme => ({
   buttonCollapse: {
@@ -15,6 +16,14 @@ const styles = theme => ({
     },
     margin: "10px",
     boxShadow: "none"
+  },
+  paper: {
+    width: '60%'
+  },
+  list:{
+    backgroundColor: colors.fb_blue,
+    height: '100%',
+    color: 'white'
   }
 });
 
@@ -59,7 +68,7 @@ function ButtonAppBarCollapse(props) {
       <IconButton onClick={toggleDrawer('right', true)}>
         <MenuIcon style={{ color: '#fff' }} />
       </IconButton>
-      <Drawer anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
+      <Drawer anchor="right" open={state.right} onClose={toggleDrawer('right', false)} classes={{ paper: classes.paper }}>
         {sideList("right", drawerData, redirect)}
       </Drawer>
     </div>

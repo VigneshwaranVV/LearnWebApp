@@ -15,7 +15,7 @@ const Routes = () => (
     {/* <div style={{ maxHeight: "10vh" }}>
       <ButtonAppBar />
     </div> */}
-    <div style={{ height: '80vh' }}>
+    <div style={{ minHeight: '86vh' }}>
       <Switch>
         <Route path={RouteConfig.root} exact={true} component={DashBoard} />
         <Route path={RouteConfig.login} component={Login} />

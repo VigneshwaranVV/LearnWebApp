@@ -19,7 +19,9 @@ class profileForm extends Component {
                 <div className="form_container">
                     <ContactForm onSubmit={this.submit} />
                 </div>
-
+                <div className="form_container">
+                    <ContactForm onSubmit={this.submit} />
+                </div>
             </div>
         )
     }
