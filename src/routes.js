@@ -3,7 +3,6 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import MainNav from "./components/navBar/MainNav";
 import Login from "./components/login/Login";
 import DashBoard from "./components/dashBoard/dashBoard";
-import Screen1 from "./components/demoScreen/screen1";
 import Register from "./components/registration/register";
 import profileForm from "./components/profile/profileForm";
 import { RouteConfig } from "./config/routeConfig";
@@ -12,10 +11,7 @@ import FooterContent from "./common/footer/FooterContent";
 const Routes = () => (
   <BrowserRouter context={{}} location={{}}>
     <MainNav />
-    {/* <div style={{ maxHeight: "10vh" }}>
-      <ButtonAppBar />
-    </div> */}
-    <div style={{ minHeight: '86vh' }}>
+    <div style={{ minHeight: "86vh" }}>
       <Switch>
         <Route path={RouteConfig.root} exact={true} component={DashBoard} />
         <Route path={RouteConfig.login} component={Login} />

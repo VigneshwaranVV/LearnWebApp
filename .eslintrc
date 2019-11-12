@@ -1,0 +1,19 @@
+{
+    "parser": "babel-eslint",
+    // "plugins": [
+    //   "react"
+    // ],
+    "env": {
+      "node": true,
+      "browser": true
+    },
+    "rules": {
+      "no-undef": [ 1 ],
+      "no-console": 1,
+      // "no-inline-comments":1,
+      "no-duplicate-imports":"error",
+      "comma-style":"warn",
+      "quotes":"warn",
+      "space-before-blocks":"warn"
+    }
+  }

@@ -2,7 +2,7 @@ import { put, takeEvery } from "redux-saga/effects";
 
 import { LOGIN_AUTH } from "../actions/types";
 import { loginAuthSucceeded, loginAuthFailed } from "../actions";
-import LoginService from '../.././services/loginService'
+import LoginService from "../.././services/loginService"
 function* getLoginService(data) {
   const response = yield LoginService(data.payload);
   if (response && response.responseCode == 200) {

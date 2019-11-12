@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ExpandCollapse from "../../common/expandOption/ExpandCollapse";
 
 export default class DashBoard extends Component {
-  render() {
+  render () {
     return (
       <div style={{ backgroundColor: "lightgrey" }}>
         {" "}

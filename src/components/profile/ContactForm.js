@@ -1,6 +1,6 @@
-import React from 'react'
-import MyCustomInput from './MyCustomInput';
-import { reduxForm, Field } from 'redux-form'
+import React from "react"
+import MyCustomInput from "./MyCustomInput";
+import { reduxForm, Field } from "redux-form"
 
 let ContactForm = props => {
   const { handleSubmit } = props;
@@ -18,7 +18,7 @@ let ContactForm = props => {
 
 ContactForm = reduxForm({
   // a unique name for the form
-  form: 'contact',
+  form: "contact",
 })(ContactForm)
 
 export default ContactForm

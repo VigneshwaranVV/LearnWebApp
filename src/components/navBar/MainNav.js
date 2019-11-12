@@ -3,14 +3,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import { Link } from "react-router-dom";
+import { Link ,withRouter} from "react-router-dom";
 import { connect } from "react-redux";
-import { withRouter } from 'react-router-dom';
 import { logout } from "../../store_config/actions";
 import { RouteConfig } from "../../config/routeConfig";
 import { colors, text_contants } from "../constants/variables";
 import AppBarCollapse from "../../common/appBarCustom/AppBarCollapse";
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,40 +27,40 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function MainNav(props) {
+function MainNav (props) {
   const classes = useStyles();
   const drawerData_beforeLogin = [
     {
-      text: 'Login',
+      text: "Login",
       route: RouteConfig.login
     },
     {
-      text: 'Sign Up',
+      text: "Sign Up",
       route: RouteConfig.register
     }
   ]
   const drawerData_afterLogin = [
     {
-      text: 'Profile',
+      text: "Profile",
       route: RouteConfig.profile
     },
     {
-      text: 'Dashboard',
+      text: "Dashboard",
       route: RouteConfig.dashboard
     },
     {
-      text: 'Saved Data',
+      text: "Saved Data",
       route: RouteConfig.dashboard,
     },
     {
-      text: <p style={{verticalAlign: 'center',display: 'flex'}}>Logout &nbsp;<ExitToAppIcon /></p>,
+      text: <p style={{verticalAlign: "center",display: "flex"}}>Logout &nbsp;<ExitToAppIcon /></p>,
       route: RouteConfig.login
     }
   ]
   return (
     <div className={classes.root}>
       <AppBar position="ststaicky"
-        style={{ backgroundColor: colors.fb_blue, position: 'sticky' }}
+        style={{ backgroundColor: colors.fb_blue, position: "sticky" }}
       >
         <Toolbar>
           <Typography variant="h6" className={classes.title}>

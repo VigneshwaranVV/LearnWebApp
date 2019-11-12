@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     justifyContent: "center",
     width: "100%",
-    backgroundColor: 'red',
+    backgroundColor: "red",
     display: "flex",
     textAlign: "center"
   },
@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Login(props) {
+function Login (props) {
   const classes = useStyles();
   // const [isLoggedIn,setLoginStatus]
   const [formData, setFormData] = React.useState({
@@ -129,7 +129,7 @@ function Login(props) {
       </div>
       <div
         style={{
-          width: '100%',
+          width: "100%",
           display: "flex",
           flexDirection: "column",
           height: "70vh",
@@ -189,7 +189,7 @@ function Login(props) {
           <Button
             variant="contained"
             color="primary"
-            style={{ backgroundColor: colors.fb_blue, boxShadow: "0px" ,fontWeight: 'bold'}}
+            style={{ backgroundColor: colors.fb_blue, boxShadow: "0px" ,fontWeight: "bold"}}
             className={classes.button}
             onClick={props.isLoading ? null : handleProceed}
           >
@@ -220,7 +220,7 @@ function Login(props) {
   );
 }
 
-function validateEmail(email) {
+function validateEmail (email) {
   var re = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   return re.test(String(email).toLowerCase());
 }

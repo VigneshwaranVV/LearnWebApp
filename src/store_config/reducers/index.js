@@ -5,7 +5,7 @@ import {
   LOGOUT
 } from "../actions/types";
 import { combineReducers } from "redux";
-import { reducer as formReducer } from 'redux-form';
+import { reducer as formReducer } from "redux-form";
 
 function authReducer(state = [], action) {
   switch (action.type) {

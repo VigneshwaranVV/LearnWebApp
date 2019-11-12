@@ -1,23 +1,23 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepButton from '@material-ui/core/StepButton';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import PersonalInformation from './personalInfoForm';
-import Completed from './completedRegiter';
-import Login from '../login/Login';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Stepper from "@material-ui/core/Stepper";
+import Step from "@material-ui/core/Step";
+import StepButton from "@material-ui/core/StepButton";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import PersonalInformation from "./personalInfoForm";
+import Completed from "./completedRegiter";
+import Login from "../login/Login";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '90%',
+    width: "90%",
   },
   button: {
     marginRight: theme.spacing(1),
   },
   completed: {
-    display: 'inline-block',
+    display: "inline-block",
   },
   instructions: {
     marginTop: theme.spacing(1),
@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return ['Personal Information', 'Terms and conditions', 'Completed'];
+  return ["Personal Information", "Terms and conditions", "Completed"];
 }
 
 function getStepContent(step) {
@@ -38,7 +38,7 @@ function getStepContent(step) {
     case 2:
       return <Completed />;
     default:
-      return 'Unknown step';
+      return "Unknown step";
   }
 }
 
@@ -135,7 +135,7 @@ export default function Register() {
                   </Typography>
                 ) : (
                   <Button variant="contained" color="primary" onClick={handleComplete}>
-                    {completedSteps() === totalSteps() - 1 ? 'Finish' : 'Complete Step'}
+                    {completedSteps() === totalSteps() - 1 ? "Finish" : "Complete Step"}
                   </Button>
                 ))}
             </div>
