@@ -59,7 +59,8 @@ function Login (props) {
   };
   useEffect(() => {
     if (props.isAuth)
-      props.history.replace("/dashboard");
+      props.history.replace("/profile");
+      // props.history.replace("/dashboard");
   })
 
   const keyPress = e => {
@@ -214,7 +215,7 @@ function Login (props) {
             defaultMessage="Forgot Password ?"
           />
         </p>
-        <a href="">Don't have account? Sign up here.</a>
+        <a href="/register">Don't have account? Sign up here.</a>
       </div>
     </div>
   );

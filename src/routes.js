@@ -8,12 +8,14 @@ import profileForm from "./components/profile/profileForm";
 import { RouteConfig } from "./config/routeConfig";
 import { ProtectedRoute } from "./common/protected-route/ProtectedRoute";
 import FooterContent from "./common/footer/FooterContent";
+import NewsContent from "./components/news/content";
+import Carousel from "./common/slider/Carousel";
 const Routes = () => (
   <BrowserRouter context={{}} location={{}}>
     <MainNav />
     <div style={{ minHeight: "86vh" }}>
       <Switch>
-        <Route path={RouteConfig.root} exact={true} component={DashBoard} />
+        <Route path={RouteConfig.root} exact={true} component={Carousel} />
         <Route path={RouteConfig.login} component={Login} />
         <ProtectedRoute path={RouteConfig.dashboard} component={DashBoard} />
         <Route

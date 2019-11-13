@@ -9,13 +9,10 @@ class profileForm extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="conatiner">
                 <div className="picture_container">
                     <img className="picture" src={profile_dp} alt="no img" />
                     <p className="name_text">Vigneshwaran</p>
-                </div>
-                <div className="form_container">
-                    <ContactForm onSubmit={this.submit} />
                 </div>
                 <div className="form_container">
                     <ContactForm onSubmit={this.submit} />
@@ -26,6 +23,7 @@ class profileForm extends Component {
 }
 export const mapStateToProps = state => {
     return {
+        // initialValues:{},
         userData: state.authReducer.loginResponse && state.authReducer.loginResponse.userData
     };
 };

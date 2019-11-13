@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function MyCustomInput(props) {
     const {
-        input: { onChange, name, label }
+        input: { onChange, name, label, value }
     } = props
     const classes = useStyles();
     return (
@@ -28,6 +28,7 @@ export default function MyCustomInput(props) {
                 label={label}
                 margin="normal"
                 onChange={onChange}
+                value={value}
                 {...props}
             />
         </div>
