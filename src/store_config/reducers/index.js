@@ -2,7 +2,8 @@ import {
   LOGIN_AUTH_SUCCESS,
   LOGIN_AUTH_FAILURE,
   LOGIN_AUTH,
-  LOGOUT
+  LOGOUT,
+  DELETE_USER_SUCCESS
 } from "../actions/types";
 import { combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
@@ -17,6 +18,8 @@ function authReducer(state = [], action) {
       return { ...state, ...action.payload, isLoading: false };
     case LOGOUT:
       return {}
+      case DELETE_USER_SUCCESS:
+        return { ...state, ...action.payload,isLoading: false, isError: "" };
     default:
       return state;
   }

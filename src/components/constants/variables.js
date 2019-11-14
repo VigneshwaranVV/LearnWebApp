@@ -6,7 +6,8 @@ const fonts = {
 
 const colors = {
   Spray: "#88E0E0",
-  fb_blue: '#3B5A98',
+  // fb_blue: '#3B5A98',
+  fb_blue:'#4388f7',
   White: "#FFF",
   Denim: "#117BBD",
   Orange: "#FFA500",

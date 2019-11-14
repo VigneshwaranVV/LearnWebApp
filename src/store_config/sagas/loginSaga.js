@@ -1,8 +1,8 @@
 import { put, takeEvery } from "redux-saga/effects";
 
-import { LOGIN_AUTH, REGISTER_USER } from "../actions/types";
-import { loginAuthSucceeded, loginAuthFailed, registerUserSucceeded, registerUserFailed } from "../actions";
-import LoginService, { RegisterUserService } from "../.././services/loginService"
+import { LOGIN_AUTH, REGISTER_USER, DELETE_USER } from "../actions/types";
+import { loginAuthSucceeded, loginAuthFailed, registerUserSucceeded, registerUserFailed, deleteUserSucceeded } from "../actions";
+import LoginService, { RegisterUserService ,DeleteUserService} from "../.././services/loginService"
 function* getLoginService(data) {
   const response = yield LoginService(data.payload);
   if (response && response.responseCode == 200) {
@@ -22,7 +22,16 @@ function* getRegisterUserService(data) {
   else {
     yield put(registerUserFailed({ isLoading: false, isError: response.message }));
   }
+}
 
+function* deleteUserService(data) {
+  const response = yield DeleteUserService(data.payload);
+  if (response && response.responseCode == 200) {
+    yield put(deleteUserSucceeded({ isLoading: false,isLoggedIn: false, deleteUserResponse: response }));
+  }
+  else {
+    yield put(deleteUserSucceeded({ isLoading: false, isError: response.message }));
+  }
 }
 
 
@@ -32,4 +41,8 @@ export function* loginAuthServices() {
 
 export function* registerUserServices() {
   yield takeEvery([REGISTER_USER], getRegisterUserService);
+}
+
+export function* deleteUserServices() {
+  yield takeEvery([DELETE_USER], deleteUserService);
 }
