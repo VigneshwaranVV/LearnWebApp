@@ -41,6 +41,6 @@ export default connect(
   mapStateToProps
 )(reduxForm({
   form: "contact", 
-  ProfileFormValidator,// a unique identifier for this form
+  validate:ProfileFormValidator,// a unique identifier for this form
   enableReinitialize: true
 })(ContactForm))

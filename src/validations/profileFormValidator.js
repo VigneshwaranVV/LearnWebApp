@@ -2,10 +2,10 @@ import React from "react";
 
 const ProfileFormValidator = values => {
     const errors = {}
-    if (!values.username) {
-        errors.username = "Required"
-    } else if (values.username.length > 15) {
-        errors.username = "Must be 15 characters or less"
+    if (!values.firstName) {
+        errors.firstName = "Required"
+    } else if (values.firstName.length > 15) {
+        errors.firstName = "Must be 15 characters or less"
     }
     if (!values.email) {
         errors.email = "Required"

@@ -16,7 +16,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function MyCustomInput(props) {
     const {
-        input: { onChange, name, label, value }
+        input: { onChange, name, label, value },
+        meta: { error }
     } = props
     const classes = useStyles();
     return (
@@ -31,6 +32,7 @@ export default function MyCustomInput(props) {
                 value={value}
                 {...props}
             />
+            <p style={{ color: "red", fontWeight: "bold" }}>{error && error}</p>
         </div>
     )
 }
