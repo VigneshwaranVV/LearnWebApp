@@ -59,7 +59,7 @@ function MainNav (props) {
   ]
   return (
     <div className={classes.root}>
-      <AppBar position="ststaicky"
+      <AppBar position="sticky"
         style={{ backgroundColor: colors.fb_blue, position: "sticky" }}
       >
         <Toolbar>
