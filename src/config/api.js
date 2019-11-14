@@ -6,7 +6,9 @@ export const environment = {
 const api = environment.local
 export const apiList = {
     login_POST: api + "/user/login",
-    logout_POST: api + "/user/logout"
+    logout_POST: api + "/user/logout",
+    registeUser_POST: api +"/user/register",
+    deleteUser_POST: api +"/user/deleteUser"
 }
 
 

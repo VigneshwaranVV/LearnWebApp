@@ -37,12 +37,12 @@ let UserDetails = props => {
           <div style={{ padding: 20 ,display: "flex",alignItems: "center",justifyContent: "center",flexDirection: "row" }}>
             <CustomButton label="UPDATE" isDisabled={!props.valid} />
 
-            {/* <ConfirmModal
+            <ConfirmModal
               buttontext="DELETE ACCOUNT"
               dialogcontent="Are you sure ?"
               dialogbuttons={[{ text: "Ok", onClick: deleteAccount }]}
               style={{minWidth: 200}}
-              isDisabled={true} */}
+              // isDisabled={true}
             />
           </div>
         </form>

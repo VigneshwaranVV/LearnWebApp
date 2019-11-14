@@ -16,5 +16,22 @@ const LoginService = async (loginBody) => {
     }
 };
 
+export const RegisterUserService = async (registerBody) => {
+    console.log("-----register service::::",registerBody)
+    try {
+        const data = await fetch(apiList.registeUser_POST, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(registerBody)
+        });
+        const responseData = await data.json();
+        return responseData;
+    } catch (error) {
+        return false;
+    }
+};
+
 
 export default LoginService
