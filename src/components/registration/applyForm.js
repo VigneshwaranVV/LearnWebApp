@@ -18,7 +18,7 @@ let ApplyForm = props => {
                     <h2>Sign Up!</h2>
                     <Field name="firstName" label="First Name*" component={MyCustomInput} type="text" />
                     <Field name="lastName" label="Last Name" component={MyCustomInput} type="text" />
-                    {/* <Field name="age" label="Age*" component={MyCustomInput} type="text" /> */}
+                    <Field name="age" label="Age*" component={MyCustomInput} type="text" />
                     <Field name="dob" label="DOB" component={MyCustomInput} type="text" />
                     <Field name="email" label="Email*" component={MyCustomInput} type="text" />
                     <Field name="contact" label="Contact No" component={MyCustomInput} type="text" />
