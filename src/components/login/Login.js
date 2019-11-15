@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center"
   },
   textField: {
-    minWidth: "95%",
+    minWidth: "70%",
     alignSelf: "center",
     fontFamily: fonts.Lato_Regular,
     fontSize: "15px"
@@ -83,7 +83,7 @@ function Login (props) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          height: "10vh"
+          // height: "10vh"
         }}
       >
         {isError || props.isErrorMsg && (
@@ -206,7 +206,8 @@ function Login (props) {
             justifyContent: "center",
             color: colors.fb_blue,
             fontFamily: fonts.NunitoSans_Regular,
-            fontSize: "17px"
+            fontSize: "17px",
+            padding:10
           }}
         // onClick={() => props.history.push("/dashboard")}
         >
@@ -215,7 +216,14 @@ function Login (props) {
             defaultMessage="Forgot Password ?"
           />
         </p>
-        <a href="/register">Don't have account? Sign up here.</a>
+        <p onClick={()=>props.history.push("/register")}  style={{
+            textAlign: "center",
+            justifyContent: "center",
+            color: colors.fb_blue,
+            fontFamily: fonts.NunitoSans_Regular,
+            fontSize: "17px",
+            textDecoration: "underline"
+          }}>Don't have account? Sign up here.</p>
       </div>
     </div>
   );
