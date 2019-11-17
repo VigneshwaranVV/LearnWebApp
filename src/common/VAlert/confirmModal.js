@@ -29,7 +29,7 @@ export default function ConfirmModal(props) {
 
     const handleClose = (onClick) => {
         setOpen(false);
-        onClick();
+        onClick&&onClick();
     };
     const { isDisabled, buttontext, dialogtitle, dialogcontent, dialogbuttons ,buttonstyle} = props;
     return (
@@ -42,6 +42,7 @@ export default function ConfirmModal(props) {
             <Dialog
                 open={open}
                 {...props}
+
                 onClose={handleClose}
                 // PaperComponent={PaperComponent}
                 aria-labelledby="draggable-dialog-title"

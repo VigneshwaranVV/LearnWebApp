@@ -1,4 +1,16 @@
-import { LOGIN_AUTH, LOGIN_AUTH_SUCCESS, LOGOUT, LOGIN_AUTH_FAILURE, REGISTER_USER, REGISTER_USER_SUCCESS, REGISTER_USER_FAILURE, DELETE_USER, DELETE_USER_SUCCESS, DELETE_USER_FAILURE } from "./types";
+import {
+  LOGIN_AUTH,
+  LOGIN_AUTH_SUCCESS,
+  LOGOUT,
+  LOGIN_AUTH_FAILURE,
+  REGISTER_USER,
+  REGISTER_USER_SUCCESS,
+  REGISTER_USER_FAILURE,
+  DELETE_USER,
+  DELETE_USER_SUCCESS,
+  DELETE_USER_FAILURE,
+  CLEAR_AUTH_STATUSMESSAGE
+} from "./types";
 
 export const loginAuth = ({ email, password }) => ({
   type: LOGIN_AUTH,
@@ -19,6 +31,10 @@ export const loginAuthFailed = content => ({
 });
 export const logout = ({
   type: LOGOUT
+});
+
+export const clearAuthStatusMessage = () => ({
+  type: CLEAR_AUTH_STATUSMESSAGE
 });
 
 export const registerUser = (formData) => ({

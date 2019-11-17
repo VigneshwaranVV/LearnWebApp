@@ -6,9 +6,10 @@ import ApplyFormValidator from "../../validations/ApplyFormValidator";
 import MyCustomInput from "../profile/MyCustomInput";
 import "./styles.css"
 import { registerUser } from "../../store_config/actions";
+import CustomizedRadios from "../../common/VRadio/customRadio";
 
 let ApplyForm = props => {
-    const { handleSubmit ,formData} = props;
+    const { handleSubmit, formData } = props;
     const onclickSubmit = () => {
         // handleSubmit();
 
@@ -16,18 +17,21 @@ let ApplyForm = props => {
     }
     return (
         <div className="container">
-        {console.log(props)}
+            {console.log(props)}
             <div className="form_container" >
                 <form onSubmit={onclickSubmit} style={{ width: "80%" }}>
                     <h2>Sign Up!</h2>
                     <Field name="firstName" label="First Name*" component={MyCustomInput} type="text" />
                     <Field name="lastName" label="Last Name" component={MyCustomInput} type="text" />
                     <Field name="age" label="Age*" component={MyCustomInput} type="text" />
+                    <Field name="gender" label="Gender" component={CustomizedRadios}
+                        radioData={[{ labelText: "Male", value: "male" }, { labelText: "Female", value: "female" }, { labelText: "Others", value: "others" }]}
+                    />
                     <Field name="dob" label="DOB" component={MyCustomInput} type="text" />
                     <Field name="email" label="Email*" component={MyCustomInput} type="text" />
                     <Field name="contact" label="Contact No" component={MyCustomInput} type="text" />
                     <div style={{ padding: 20 }}>
-                        <CustomButton label="Submit" isDisabled={!props.valid} onClick={onclickSubmit}/>
+                        <CustomButton label="Submit" isDisabled={!props.valid} onClick={onclickSubmit} />
                     </div>
                 </form>
             </div>
@@ -43,9 +47,10 @@ export const mapStateToProps = (state, props) => {
             firstName: "",
             age: "",
             dob: "",
+            gender: "male",
             skills: "",
         },
-        formData: state.form.applyform &&state.form.applyform.values &&state.form.applyform.values
+        formData: state.form.applyform && state.form.applyform.values && state.form.applyform.values
     }
 }
 
@@ -58,7 +63,7 @@ export const mapDispatchToProps = dispatch => {
 };
 
 ApplyForm = connect(
-    mapStateToProps,mapDispatchToProps
+    mapStateToProps, mapDispatchToProps
 )(reduxForm({
     form: "applyform",
     validate: ApplyFormValidator,// a unique identifier for this form
