@@ -32,11 +32,10 @@ let UserDetails = props => {
   const deleteAccount = () => {
     props.onClickDelete(formData.email);
   }
-
   return (
     <div className="container">
       <div className="picture_container">
-        <img className="picture" src={formData &&formData.profile_img} alt="no img" />
+        <img className="picture" src={formData &&formData.profile_img?formData.profile_img:""} alt="no img" />
         <p className="name_text">{(formData && formData.firstName) + " " + (formData && formData.lastName)}</p>
       </div>
       <div className="form_container">
@@ -98,6 +97,7 @@ const mapStateToProps = (state, props) => {
       age: data.age,
       dob: data.dob,
       skills: data.skills,
+      profile_img:data.profile_img
     },
     formData: state.form.contact && state.form.contact.values,
     statusMessage: state.authReducer && state.authReducer.statusMessage,
