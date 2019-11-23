@@ -17,7 +17,6 @@ let ApplyForm = props => {
     }
     return (
         <div className="container">
-            {console.log(props)}
             <div className="form_container" >
                 <form onSubmit={onclickSubmit} style={{ width: "80%" }}>
                     <h2>Sign Up!</h2>
@@ -30,6 +29,7 @@ let ApplyForm = props => {
                     <Field name="dob" label="DOB" component={MyCustomInput} type="text" />
                     <Field name="email" label="Email*" component={MyCustomInput} type="text" />
                     <Field name="contact" label="Contact No" component={MyCustomInput} type="text" />
+                    <Field name="password" label="Password*" component={MyCustomInput} type="password" />
                     <div style={{ padding: 20 }}>
                         <CustomButton label="Submit" isDisabled={!props.valid} onClick={onclickSubmit} />
                     </div>
@@ -49,6 +49,7 @@ export const mapStateToProps = (state, props) => {
             dob: "",
             gender: "male",
             skills: "",
+            password:"",
         },
         formData: state.form.applyform && state.form.applyform.values && state.form.applyform.values
     }

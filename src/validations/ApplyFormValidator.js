@@ -19,6 +19,12 @@ const ApplyFormValidator = values => {
     } else if (Number(values.age) < 18) {
         errors.age = "Sorry, you must be at least 18 years old"
     }
+    if (!values.password) {
+        errors.password = "Required"
+    }
+    else if (values.password.length != 5) {
+        errors.password = "Password atleast 5 characters "
+    }
     return errors
 }
 
