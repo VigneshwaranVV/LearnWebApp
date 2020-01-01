@@ -14,7 +14,7 @@ const Routes = () => (
     <MainNav />
     <div style={{ minHeight: "86vh" }}>
       <Switch>
-        <Route path={RouteConfig.root} exact={true} component={DashBoard} />
+        <Route path={RouteConfig.root} exact={true} component={NewsContent} />
         <Route path={RouteConfig.login} component={Login} />
         <ProtectedRoute path={RouteConfig.dashboard} component={DashBoard} />
         <Route

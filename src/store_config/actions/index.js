@@ -9,7 +9,10 @@ import {
   DELETE_USER,
   DELETE_USER_SUCCESS,
   DELETE_USER_FAILURE,
-  CLEAR_AUTH_STATUSMESSAGE
+  CLEAR_AUTH_STATUSMESSAGE,
+  UPDATE_USER,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAILURE
 } from "./types";
 
 export const loginAuth = ({ email, password }) => ({
@@ -67,5 +70,22 @@ export const deleteUserSucceeded = content => ({
 
 export const deleteUserFailed = content => ({
   type: DELETE_USER_FAILURE,
+  payload: content
+});
+
+
+export const updateUser = (content) => ({
+  type: UPDATE_USER,
+  payload: {
+    formData: content
+  }
+})
+export const updateUserSucceeded = content => ({
+  type: UPDATE_USER_SUCCESS,
+  payload: content
+});
+
+export const updateUserFailed = content => ({
+  type: UPDATE_USER_FAILURE,
   payload: content
 });

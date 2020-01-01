@@ -40,8 +40,8 @@ function Login (props) {
   const classes = useStyles();
   // const [isLoggedIn,setLoginStatus]
   const [formData, setFormData] = React.useState({
-    email: "vignesh@vv.com",
-    password: "43211"
+    email: "qa@qa.com",
+    password: "123#"
   });
   const [isError, setIsError] = React.useState(false);
   const pwd_ref = React.createRef();

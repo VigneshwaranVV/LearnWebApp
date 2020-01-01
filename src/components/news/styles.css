@@ -1,0 +1,27 @@
+.newsContainer{
+    display:flex;
+    flex-direction: row;
+    padding: 20px;
+}
+.dataContainer{
+    max-width: 40%;
+}
+.image{
+    height: 400px;
+    width: 30%;
+}
+
+.title{
+    font-size: 18;
+    font-weight: bold;
+    display: inline-block;
+    max-width: 480px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+
+.description{
+    font-size: 12;
+    color: darkgray;
+}
