@@ -4,24 +4,38 @@
     padding: 20px;
 }
 .dataContainer{
-    max-width: 40%;
+    max-width: 60%;
+    text-overflow: ellipsis;
+    line-height: 16px;
 }
+.imageContainer{
+    min-width: 100px;
+    width: 40%;
+}
+
 .image{
-    height: 400px;
-    width: 30%;
+    height: 100%;
+    width: 100%;
 }
 
 .title{
     font-size: 18;
     font-weight: bold;
-    display: inline-block;
+    /* display: inline-block; */
     max-width: 480px;
     white-space: nowrap;
     overflow: hidden !important;
     text-overflow: ellipsis;
+    padding: 10px 0px;
 }
 
 .description{
     font-size: 12;
+    font-family: initial;
     color: darkgray;
+}
+
+.publishDate{
+    font-size: 12px;
+    padding: 10px 0px;
 }

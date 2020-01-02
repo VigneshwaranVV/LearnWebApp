@@ -65,14 +65,14 @@ const onChangeImage = (event) => {
           <Field name="contact" label="Contact No" component={MyCustomInput} type="text" />
           <Field name="skills" label="Skills" component={RenderChipInput} />
 
-          <div style={{ padding: 20, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "row" }}>
+          <div style={{ padding: 20, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
             <CustomButton label="UPDATE" isDisabled={!props.valid} onClick={updateAccount} />
 
             <ConfirmModal
               buttontext="DELETE ACCOUNT"
               dialogcontent="Are you sure ?"
               dialogbuttons={[{ text: "Ok", onClick: deleteAccount }, { text: "Cancel", onClick: null }]}
-              style={{ minWidth: 200 }}
+              // style={{ minWidth: 200 }}
             // isDisabled={true}
             />
             <Snackbar

@@ -31,6 +31,9 @@ function MainNav (props) {
   const classes = useStyles();
   const drawerData_beforeLogin = [
     {
+      text: "Home",
+      route: RouteConfig.root
+    },{
       text: "Login",
       route: RouteConfig.login
     },
@@ -41,6 +44,9 @@ function MainNav (props) {
   ]
   const drawerData_afterLogin = [
     {
+      text: "Home",
+      route: RouteConfig.root
+    },{
       text: "Profile",
       route: RouteConfig.profile
     },

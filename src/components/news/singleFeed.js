@@ -1,15 +1,25 @@
 import React from 'react';
 import './styles.css'
+import CustomButton from '../../common/VButton/CustomButton';
 
 export default function SingleFeed(props) {
-    const { data } = { ...props }
+    const { data, showSave } = { ...props }
     return (
         <div className="newsContainer">
-            <div className="dataContainer">
-                <p className="title">{data.title}</p>
-                <p className="description">{data.description}</p>
+            <div className="imageContainer">
+                <img src={data.urlToImage} className="image" />
             </div>
-                <img src={data.urlToImage} className="image"/>
+            <div className="dataContainer">
+                <a href={data.url} target="_blank">
+                    <p className="title">{data.title}</p>
+                </a>
+                <p className="description">{data.description}</p>
+                <p className="publishDate">{new Date(data.publishedAt).toDateString()}</p>
+                {showSave && <div>
+                    <CustomButton label="Save" isDisabled={false} />
+                </div>
+                }
+            </div>
         </div>
     )
 }

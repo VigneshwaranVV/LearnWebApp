@@ -5,7 +5,7 @@ export const environment = {
     dev: "https://usermanagement-node.herokuapp.com"
 }
 console.log("---env config:---->web::::",process.env)
-const api =environment[process.env.CONN_ENV] || environment.dev
+const api =environment[process.env.CONN_ENV] || environment.local
 export const apiList = {
     login_POST: api + "/user/login",
     logout_POST: api + "/user/logout",

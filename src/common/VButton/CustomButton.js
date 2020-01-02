@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import PropTypes from "prop-types";
 
@@ -7,7 +6,7 @@ export default function CustomButton(props) {
     const { label, onClick, isDisabled } = { ...props }
     return (
         <Button variant="outlined"  onClick={onClick} disabled={isDisabled}
-        color="primary"
+        color="primary" style={{margin:20,padding:10}}
         >
             {label}
         </Button>
