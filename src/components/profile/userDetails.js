@@ -31,7 +31,6 @@ let UserDetails = props => {
     props.onClickUpdate(formData);
   }
   const onChangeImage = (event) => {
-    console.log("-------------->", event, "==?")
     // setImg(event.target.value)
     props.change('profile_img', event)
 
@@ -42,7 +41,6 @@ let UserDetails = props => {
   const deleteAccount = () => {
     props.onClickDelete(formData.email);
   }
-  console.log("--inside render ==?", formData)
   return (
     <div className="container">
       <div className="picture_container">

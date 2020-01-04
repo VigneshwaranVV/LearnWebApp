@@ -7,12 +7,6 @@ export class ImageUpload extends React.Component {
         this.state = { file: '', imagePreviewUrl: '' };
     }
 
-    // _handleSubmit(e) {
-    //     e.preventDefault();
-    //     console.log('handle uploading-', this.state.file);
-    //     this.props.onChangeImage(this.state.file);
-    // }
-
     static getDerivedStateFromProps(nextProps, prevState) {
         if (nextProps.currentImage !== prevState.imagePreviewUrl) {
             return ({ imagePreviewUrl: nextProps.currentImage }) // <- this is setState equivalent
@@ -23,7 +17,6 @@ export class ImageUpload extends React.Component {
         e.preventDefault();
         let reader = new FileReader();
         let file = e.target.files[0];
-        console.log(file,e)
         reader.onloadend = () => {
             this.setState({
                 file: file,

@@ -17,7 +17,6 @@ const LoginService = async (loginBody) => {
 };
 
 export const RegisterUserService = async (registerBody) => {
-    // console.log("-----register service::::",registerBody)
     try {
         const data = await fetch(apiList.registeUser_POST, {
             method: "POST",
@@ -34,7 +33,6 @@ export const RegisterUserService = async (registerBody) => {
 };
 
 export const DeleteUserService = async (deleteBody) => {
-    console.log("-----delete service::::",deleteBody)
     try {
         const data = await fetch(apiList.deleteUser_POST, {
             method: "POST",
@@ -51,7 +49,6 @@ export const DeleteUserService = async (deleteBody) => {
 };
 
 export const UpdateUserService = async (registerBody) => {
-    // console.log("-----register service::::",registerBody)
     try {
         const data = await fetch(apiList.updateUser_POST, {
             method: "POST",
