@@ -5,7 +5,7 @@ import { loginAuthSucceeded, loginAuthFailed, registerUserSucceeded, registerUse
 import LoginService, { RegisterUserService, DeleteUserService,UpdateUserService } from "../.././services/loginService"
 function* getLoginService(data) {
   const response = yield LoginService(data.payload);
-  if (response && response.responseCode == 200) {
+  if (response && response.responseCode === 200) {
     yield put(loginAuthSucceeded({ isLoggedIn: true, isLoading: false, loginResponse: response }));
   }
   else {
@@ -16,17 +16,17 @@ function* getLoginService(data) {
 
 function* getRegisterUserService(data) {
   const response = yield RegisterUserService(data.payload);
-  if (response && response.responseCode == 200) {
+  if (response && response.responseCode === 200) {
     yield put(registerUserSucceeded({ isLoading: false, registerUserResponse: response }));
   }
   else {
-    yield put(registerUserFailed({ isLoading: false, isError: response.message }));
+    yield put(registerUserFailed({ isLoading: false, registerUserResponse: response }));
   }
 }
 
 function* deleteUserService(data) {
   const response = yield DeleteUserService(data.payload);
-  if (response && response.responseCode == 200) {
+  if (response && response.responseCode === 200) {
     yield put(deleteUserSucceeded({ isLoading: false, isLoggedIn: false, deleteUserResponse: response }));
   }
   else {
@@ -36,7 +36,7 @@ function* deleteUserService(data) {
 
 function* updateUserService(data) {
   const response = yield UpdateUserService(data.payload);
-  if (response && response.responseCode == 200) {
+  if (response && response.responseCode === 200) {
     yield put(updateUserSucceeded({ isLoading: false,  updateUserResponse: response }));
   }
   else {

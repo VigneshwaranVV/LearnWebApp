@@ -1,8 +1,8 @@
 import React from "react";
-import { Button, MenuItem } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import ButtonAppBarCollapse from "./ButtonAppBarCollapse";
-import { NavLink, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { RouteConfig } from "../../config/routeConfig";
 
 const styles = theme => ({
@@ -27,17 +27,17 @@ const styles = theme => ({
 const AppBarCollapse = props => {
   const { drawerData } = { ...props }
   const redirect = (route = '/') => {
-    if(route ==RouteConfig.login){
+    if (route === RouteConfig.login) {
       props.onClickLogout();
     }
     props.history.push(route);
   }
   return (
     <div className={props.classes.root}>
-      <ButtonAppBarCollapse drawerData={drawerData} redirect={redirect}/>
+      <ButtonAppBarCollapse drawerData={drawerData} redirect={redirect} />
       <div className={props.classes.buttonBar} id="appbar-collapse">
         {drawerData.map((data, index) => {
-          return <Button color="inherit" onClick={()=>redirect(data.route)}>{data.text}</Button>;
+          return <Button color="inherit" onClick={() => redirect(data.route)}>{data.text}</Button>;
         })}
       </div>
     </div>

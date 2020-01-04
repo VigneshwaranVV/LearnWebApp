@@ -6,7 +6,8 @@ import {
   DELETE_USER_SUCCESS,
   REGISTER_USER_SUCCESS,
   CLEAR_AUTH_STATUSMESSAGE,
-  UPDATE_USER_SUCCESS
+  UPDATE_USER_SUCCESS,
+  REGISTER_USER_FAILURE
 } from "../actions/types";
 import { combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
@@ -25,10 +26,7 @@ function authReducer(state = [], action) {
       return { ...state, isLoading: true, isError: "" };
     case LOGIN_AUTH_FAILURE:
       return {
-        ...state, ...action.payload, isLoading: false, statusMessage: {
-          message: action.payload.loginResponse.message,
-          type: "failure"
-        }
+        ...state, ...action.payload, isLoading: false
       };
     case LOGOUT:
       return {}
@@ -41,6 +39,14 @@ function authReducer(state = [], action) {
           type: "success"
         }
       };
+      case REGISTER_USER_FAILURE:
+        return {
+          ...state, ...action.payload, isLoading: false,statusMessage: {
+            message: action.payload.registerUserResponse.message,
+            type: "failure"
+          }
+        };
+
       case UPDATE_USER_SUCCESS:
         state["formData"]=action.payload.updateUserResponse.data;
         return {

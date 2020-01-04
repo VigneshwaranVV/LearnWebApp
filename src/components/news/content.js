@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Carousel from "../../common/slider/Carousel"
+// import Carousel from "../../common/slider/Carousel"
 import { connect } from "react-redux";
 import SingleFeed from "./singleFeed"
 const DATA = [{

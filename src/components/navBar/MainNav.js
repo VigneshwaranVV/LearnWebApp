@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import { Link ,withRouter} from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../../store_config/actions";
 import { RouteConfig } from "../../config/routeConfig";
@@ -27,13 +27,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function MainNav (props) {
+function MainNav(props) {
   const classes = useStyles();
   const drawerData_beforeLogin = [
     {
       text: "Home",
       route: RouteConfig.root
-    },{
+    }, {
       text: "Login",
       route: RouteConfig.login
     },
@@ -46,7 +46,7 @@ function MainNav (props) {
     {
       text: "Home",
       route: RouteConfig.root
-    },{
+    }, {
       text: "Profile",
       route: RouteConfig.profile
     },
@@ -59,7 +59,7 @@ function MainNav (props) {
       route: RouteConfig.dashboard,
     },
     {
-      text: <p style={{verticalAlign: "center",display: "flex"}}>Logout &nbsp;<ExitToAppIcon /></p>,
+      text: <p style={{ verticalAlign: "center", display: "flex" }}>Logout &nbsp;<ExitToAppIcon /></p>,
       route: RouteConfig.login
     }
   ]

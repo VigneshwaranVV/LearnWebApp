@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import PropTypes, { string } from "prop-types";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles(theme => ({
     container: {

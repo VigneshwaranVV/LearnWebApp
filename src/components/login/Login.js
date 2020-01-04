@@ -86,7 +86,7 @@ function Login (props) {
           // height: "10vh"
         }}
       >
-        {isError || props.isErrorMsg && (
+        {(isError || props.isErrorMsg) && (
           <div
             style={{
               width: "90%",
@@ -96,8 +96,8 @@ function Login (props) {
               borderStyle: "solid",
               display: "flex",
               alignItems: "center",
-              borderRadius: "5px"
-              // padding: "10px"
+              borderRadius: "5px",
+              marginTop: "10px"
             }}
           >
             <ErrorRoundedIcon

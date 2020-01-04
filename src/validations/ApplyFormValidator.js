@@ -1,4 +1,4 @@
-import React from "react";
+import { checkEmail } from "./regexValid";
 
 const ApplyFormValidator = values => {
     const errors = {}
@@ -9,8 +9,8 @@ const ApplyFormValidator = values => {
     }
     if (!values.email) {
         errors.email = "Required"
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        errors.email = "Invalid email address"
+    } else if (!checkEmail(values.email)) {
+        errors.email = "Provide valid email address"
     }
     if (!values.age) {
         errors.age = "Required"
@@ -22,8 +22,8 @@ const ApplyFormValidator = values => {
     if (!values.password) {
         errors.password = "Required"
     }
-    else if (values.password.length != 5) {
-        errors.password = "Password atleast 5 characters "
+    else if (values.password.length !== 5) {
+        errors.password = "Password must be at least 6 characters"
     }
     return errors
 }

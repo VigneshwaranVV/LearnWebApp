@@ -7,10 +7,10 @@ export default function SingleFeed(props) {
     return (
         <div className="newsContainer">
             <div className="imageContainer">
-                <img src={data.urlToImage} className="image" />
+                <img src={data.urlToImage} className="image" alt="img"/>
             </div>
             <div className="dataContainer">
-                <a href={data.url} target="_blank">
+                <a href={data.url} target="_blank" rel="noopener noreferrer">
                     <p className="title">{data.title}</p>
                 </a>
                 <p className="description">{data.description}</p>
