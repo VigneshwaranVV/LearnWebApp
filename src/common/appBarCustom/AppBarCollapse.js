@@ -37,7 +37,7 @@ const AppBarCollapse = props => {
       <ButtonAppBarCollapse drawerData={drawerData} redirect={redirect} />
       <div className={props.classes.buttonBar} id="appbar-collapse">
         {drawerData.map((data, index) => {
-          return <Button color="inherit" onClick={() => redirect(data.route)}>{data.text}</Button>;
+          return <Button color="inherit" onClick={() => redirect(data.route)} key={index}>{data.text}</Button>;
         })}
       </div>
     </div>
