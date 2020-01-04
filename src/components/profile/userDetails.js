@@ -20,7 +20,7 @@ let UserDetails = props => {
   const { handleSubmit, formData } = props;
   const [open, setOpen] = React.useState(false);
 
-  useEffect((props) => {
+  useEffect(() => {
     if (props.statusMessage.message) {
       setOpen(true);
       setTimeout(() => props.clearAuthStatusMessage(), 2000);
