@@ -76,7 +76,7 @@ export default function CustomizedRadios(props) {
             >
                 {
                     props.radioData && props.radioData.map((data, index) => {
-                        return <FormControlLabel value={data.value} control={<StyledRadio />} label={data.labelText} />
+                        return <FormControlLabel value={data.value} control={<StyledRadio />} label={data.labelText} key={index}/>
                     })
                 }
             </RadioGroup>

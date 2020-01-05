@@ -45,7 +45,7 @@ let UserDetails = props => {
     <div className="container">
       <div className="picture_container">
         {/* <img className="picture" src={formData &&formData.profile_img?formData.profile_img:""} alt="no img" /> */}
-        <ImageUpload onChangeImage={onChangeImage} currentImage={formData && formData.profile_img ? formData.profile_img : "dummy_dp"} />
+        <ImageUpload onChangeImage={onChangeImage} currentImage={formData && formData.profile_img ? formData.profile_img : ""} />
         <p className="name_text">{(formData && formData.firstName) + " " + (formData && formData.lastName)}</p>
       </div>
       <div className="form_container">

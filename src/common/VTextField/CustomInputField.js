@@ -17,13 +17,13 @@ const useStyles = makeStyles(theme => ({
 
 export default function CustomInputField(props) {
     const classes = useStyles();
-    const { isDisabled, value, onChange} = props;
+    const { isDisabled, value, onChange } = props;
     return (
         <div>
             <TextField
                 value={value && value}
                 disabled={isDisabled && isDisabled}
-                id="outlined-basic"
+                id={"outlined-basic" + props.type}
                 className={classes.textField}
                 label="Outlined"
                 margin="normal"
@@ -38,5 +38,5 @@ export default function CustomInputField(props) {
 CustomInputField.propTypes = {
     isDisabled: PropTypes.bool,
     value: PropTypes.string,
-    onChange :PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired
 }
